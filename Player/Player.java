@@ -1,3 +1,4 @@
+package Player;
 import Enemies.Type;
 
 public abstract class Player {
@@ -51,7 +52,18 @@ public abstract class Player {
             this.HP = sum;
         }
     }
-    
+
+    public void reduceHealth(int dmg, Type type) {
+        if (this.defenceType.getValue() == (type.getValue() - 1)) { //Half as effective
+            dmg /= 2;
+        }
+        else if (this.defenceType.getValue() == (type.getValue() + 1)) { //Doubly effective
+            dmg *= 2;
+        }
+        this.HP -= dmg;
+    }
+
+    public abstract void isAttacked(int dmg, Type type);
     public abstract void levelUp();
 
     //public abstract void equip(Slot, Equipment);

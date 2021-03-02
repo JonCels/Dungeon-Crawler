@@ -1,3 +1,4 @@
+package Player;
 import Enemies.Type;
 
 public class Warrior extends Player {
@@ -18,5 +19,9 @@ public class Warrior extends Player {
         this.damage += 30;
         this.maxHP += 50;
         this.heal();
-    }    
+    }
+
+    public void isAttacked(int dmg, Type type) {
+        this.reduceHealth(dmg, type);
+    }
 }
