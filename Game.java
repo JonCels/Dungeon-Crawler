@@ -9,12 +9,12 @@ public class Game {
         Player w1 = new Warrior();
 
         System.out.println("Warrior HP: " + w1.currentHealth());
-        System.out.println("Enemy HP: " + s1.currentHealth());
-        while (w1.currentHealth() > 0 && s1.currentHealth() > 0) {
-            w1.isAttacked(s1.attack(), s1.attackType());
-            s1.reduceHealth(w1.attack(), w1.attackType());
+        System.out.println("Enemy HP: " + e5.currentHealth());
+        while (w1.currentHealth() > 0 && e5.currentHealth() > 0) {
+            w1.isAttacked(e5.attack(), e5.attackType());
+            e5.reduceHealth(w1.attack(), w1.attackType());
         }
         System.out.println("Warrior HP: " + w1.currentHealth());
-        System.out.println("Enemy HP: " + s1.currentHealth());
+        System.out.println("Enemy HP: " + e5.currentHealth());
     }
 }

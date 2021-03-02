@@ -44,8 +44,16 @@ public abstract class Enemy {
         else if (this.defenceType.getValue() == (type.getValue() + 1)) { //Doubly effective
             dmg *= 2;
         }
-        this.HP -= dmg;
+        if (this.HP - dmg <= 0) {
+            this.HP = 0;
+            //this.die();
+        }
+        else {
+            this.HP -= dmg;
+        }
     }
-    //public abstract void special();
+    
     //public abstract void die();
+
+    //public abstract void special();
 }
