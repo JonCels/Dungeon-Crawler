@@ -3,9 +3,17 @@ import Enemies.Type;
 
 public class Warrior extends Player {
     public Warrior() {
-        this.damage = 5;
+        this.damage = 10;
         this.HP = this.maxHP = 100;
         this.level = 1;
+        this.defenceType = Type.PHYSICAL;
+        this.attackType = Type.PHYSICAL;
+    }
+
+    public Warrior(int level) {
+        this.level = level;
+        this.damage = 5 + (30 * this.level);
+        this.HP = this.maxHP = 100 + (50 * this.level);
         this.defenceType = Type.PHYSICAL;
         this.attackType = Type.PHYSICAL;
     }
@@ -23,5 +31,9 @@ public class Warrior extends Player {
 
     public void isAttacked(int dmg, Type type) {
         this.reduceHealth(dmg, type);
+    }
+
+    public void die() {
+        System.out.println("The warrior died!");
     }
 }
