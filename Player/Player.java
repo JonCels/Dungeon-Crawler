@@ -1,5 +1,5 @@
 package Player;
-import Enemies.Type;
+import Enemies.DamageType;
 
 public abstract class Player {
     protected int damage;
@@ -7,8 +7,8 @@ public abstract class Player {
     protected int maxHP;
     protected int level;
     protected int attackPerTurn = 1;
-    protected Type defenceType;
-    protected Type attackType;
+    protected DamageType defenceType;
+    protected DamageType attackType;
     //equipment
 
     public int attack() {
@@ -31,11 +31,11 @@ public abstract class Player {
         return this.attackPerTurn;
     }
 
-    public Type attackType() {
+    public DamageType attackType() {
         return this.attackType;
     }
 
-    public Type defenceType() {
+    public DamageType defenceType() {
         return this.defenceType;
     }
 
@@ -53,7 +53,7 @@ public abstract class Player {
         }
     }
 
-    public void reduceHealth(int dmg, Type type) {
+    public void reduceHealth(int dmg, DamageType type) {
         if (this.defenceType.getValue() == (type.getValue() - 1)) { //Half as effective
             dmg /= 2;
         }
@@ -67,13 +67,12 @@ public abstract class Player {
         else {
             this.HP -= dmg;
         }
-        
     }
 
-    public abstract void isAttacked(int dmg, Type type);
+    public abstract void isAttacked(int dmg, DamageType type);
     public abstract void levelUp();
     public abstract void die();
-    
+
     //public abstract void equip(Slot, Equipment);
     //public abstract void special();
     

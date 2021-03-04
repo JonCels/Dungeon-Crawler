@@ -1,12 +1,12 @@
 package Enemies;
 
-public enum Type {
+public enum DamageType {
     PHYSICAL(1),
     UNDEAD(2),
     MAGICAL(3);
 
     private int value;
-    private Type(int value) {
+    private DamageType(int value) {
         this.value = value;
     }
     public int getValue() {

@@ -5,7 +5,7 @@ public class Zombie extends Enemy {
         this.level = level;
         this.damage = 7 * this.level;
         this.HP = this.maxHP = 45 * this.level;
-        this.defenceType = Type.UNDEAD;
-        this.attackType = Type.UNDEAD;
+        this.defenceType = DamageType.UNDEAD;
+        this.attackType = DamageType.UNDEAD;
     }
 }

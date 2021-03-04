@@ -5,7 +5,7 @@ public class Slime extends Enemy {
         this.level = level;
         this.damage = 5 * this.level;
         this.HP = this.maxHP = 50 * this.level;
-        this.defenceType = Type.PHYSICAL;
-        this.attackType = Type.PHYSICAL;
+        this.defenceType = DamageType.PHYSICAL;
+        this.attackType = DamageType.PHYSICAL;
     }
 }

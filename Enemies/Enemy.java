@@ -6,8 +6,8 @@ public abstract class Enemy {
     protected int maxHP;
     protected int level;
     protected int attackPerTurn = 1;
-    protected Type defenceType;
-    protected Type attackType;
+    protected DamageType defenceType;
+    protected DamageType attackType;
 
     public int attack() {
         return this.damage;
@@ -29,15 +29,15 @@ public abstract class Enemy {
         return this.attackPerTurn;
     }
 
-    public Type attackType() {
+    public DamageType attackType() {
         return this.attackType;
     }
 
-    public Type defenceType() {
+    public DamageType defenceType() {
         return this.defenceType;
     }
     
-    public void reduceHealth(int dmg, Type type) {
+    public void reduceHealth(int dmg, DamageType type) {
         if (this.defenceType.getValue() == (type.getValue() - 1)) { //Half as effective
             dmg /= 2;
         }

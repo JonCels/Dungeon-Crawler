@@ -1,21 +1,21 @@
 package Player;
-import Enemies.Type;
+import Enemies.DamageType;
 
 public class Warrior extends Player {
     public Warrior() {
         this.damage = 10;
         this.HP = this.maxHP = 100;
         this.level = 1;
-        this.defenceType = Type.PHYSICAL;
-        this.attackType = Type.PHYSICAL;
+        this.defenceType = DamageType.PHYSICAL;
+        this.attackType = DamageType.PHYSICAL;
     }
 
     public Warrior(int level) {
         this.level = level;
         this.damage = 5 + (30 * this.level);
         this.HP = this.maxHP = 100 + (50 * this.level);
-        this.defenceType = Type.PHYSICAL;
-        this.attackType = Type.PHYSICAL;
+        this.defenceType = DamageType.PHYSICAL;
+        this.attackType = DamageType.PHYSICAL;
     }
 
     public void levelUp() {
@@ -29,7 +29,7 @@ public class Warrior extends Player {
         this.heal();
     }
 
-    public void isAttacked(int dmg, Type type) {
+    public void isAttacked(int dmg, DamageType type) {
         this.reduceHealth(dmg, type);
     }
 
