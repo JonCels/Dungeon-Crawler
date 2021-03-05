@@ -1,5 +1,6 @@
 package Player;
 import Enemies.DamageType;
+import Player.Equipment.Equipment;
 
 public class Warrior extends Player {
     public Warrior() {
@@ -8,6 +9,7 @@ public class Warrior extends Player {
         this.level = 1;
         this.defenceType = DamageType.PHYSICAL;
         this.attackType = DamageType.PHYSICAL;
+        this.equipment = new Equipment[6];
     }
 
     public Warrior(int level) {

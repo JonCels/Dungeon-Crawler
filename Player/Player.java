@@ -1,5 +1,6 @@
 package Player;
 import Enemies.DamageType;
+import Player.Equipment.Equipment;
 
 public abstract class Player {
     protected int damage;
@@ -9,6 +10,7 @@ public abstract class Player {
     protected int attackPerTurn = 1;
     protected DamageType defenceType;
     protected DamageType attackType;
+    protected Equipment[] equipment;
     //equipment
 
     public int attack() {
@@ -69,10 +71,14 @@ public abstract class Player {
         }
     }
 
+    public void equip(Equipment item) {
+        int slot = item.getType().getValue() - 1;
+        this.equipment[slot] = item;
+    }
+
     public abstract void isAttacked(int dmg, DamageType type);
     public abstract void levelUp();
     public abstract void die();
-
     //public abstract void equip(Slot, Equipment);
     //public abstract void special();
     
