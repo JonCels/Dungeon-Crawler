@@ -1,5 +1,6 @@
 import Enemies.*;
 import Player.*;
+import Player.Equipment.*;
 
 public class Game {
     public static void main(String args[]) {
@@ -16,5 +17,10 @@ public class Game {
         }
         System.out.println("Warrior HP: " + w1.currentHealth());
         System.out.println("Enemy HP: " + e5.currentHealth());
+
+        Equipment helm1 = new Equipment(5, Rarity.LEGENDARY, EquipmentType.HEAD);
+        for (int i = 0; i < helm1.numStats(); i++) {
+            System.out.println("+" + helm1.getStatValue(i) + " " + helm1.getStatType(i));
+        }
     }
 }
