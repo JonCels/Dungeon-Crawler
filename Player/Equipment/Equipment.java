@@ -1,20 +1,33 @@
 package Player.Equipment;
 import java.lang.Math;
+import java.awt.Graphics;
 
-public class Equipment {
+import GameInfo.GameObject;
+import GameInfo.GameID;
+
+public class Equipment extends GameObject {
     private EquipmentType type;
     private Rarity rarity;
     private int level;
     private StatType[] statTypes;
     private int statValues[];
 
-    public Equipment(int level, Rarity rarity, EquipmentType type) {
+    public Equipment(int x, int y, GameID id, int level, Rarity rarity, EquipmentType type) {
+        super(x, y, id);
         this.level = level;
         this.type = type;
         this.rarity = rarity;
         this.generateStats();
     }
 
+    public void tick() {
+
+    }
+
+    public void render(Graphics g) {
+
+    }
+    
     public EquipmentType getType() {
         return this.type;
     }

@@ -1,6 +1,8 @@
 package Enemies;
+import GameInfo.GameObject;
+import GameInfo.GameID;
 
-public abstract class Enemy {
+public abstract class Enemy extends GameObject{
     protected int damage;
     protected int HP;
     protected int maxHP;
@@ -9,6 +11,10 @@ public abstract class Enemy {
     protected DamageType defenceType;
     protected DamageType attackType;
 
+    protected Enemy(int x, int y, GameID id) {
+        super(x, y, id);
+    }
+    
     public int attack() {
         return this.damage;
     }

@@ -1,3 +1,4 @@
+package GameInfo;
 import java.awt.Canvas;
 import java.awt.image.BufferStrategy;
 import java.awt.Graphics;
@@ -85,23 +86,5 @@ public class Game extends Canvas implements Runnable {
     }
     public static void main(String args[]) {
         new Game();
-        Enemy s1 = new Slime(1);
-        Enemy z2 = new Zombie(2);
-        Enemy e5 = new Elemental(5);
-        Player w1 = new Warrior();
-
-        System.out.println("Warrior HP: " + w1.currentHealth());
-        System.out.println("Enemy HP: " + e5.currentHealth());
-        while (w1.currentHealth() > 0 && e5.currentHealth() > 0) {
-            w1.isAttacked(e5.attack(), e5.attackType());
-            e5.reduceHealth(w1.attack(), w1.attackType());
-        }
-        System.out.println("Warrior HP: " + w1.currentHealth());
-        System.out.println("Enemy HP: " + e5.currentHealth());
-
-        Equipment helm1 = new Equipment(5, Rarity.LEGENDARY, EquipmentType.HEAD);
-        for (int i = 0; i < helm1.numStats(); i++) {
-            System.out.println("+" + helm1.getStatValue(i) + " " + helm1.getStatType(i));
-        }
     }
 }

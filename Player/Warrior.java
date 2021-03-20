@@ -1,9 +1,14 @@
 package Player;
+import java.awt.Graphics;
+
+import GameInfo.GameID;
 import Enemies.DamageType;
 import Player.Equipment.Equipment;
 
 public class Warrior extends Player {
-    public Warrior() {
+
+    public Warrior(int x, int y, GameID id) {
+        super(x, y, id);
         this.damage = 10;
         this.HP = this.maxHP = 100;
         this.level = 1;
@@ -12,12 +17,21 @@ public class Warrior extends Player {
         this.equipment = new Equipment[6];
     }
 
-    public Warrior(int level) {
+    public Warrior(int x, int y, GameID id, int level) {
+        super(x, y, id);
         this.level = level;
         this.damage = 5 + (30 * this.level);
         this.HP = this.maxHP = 100 + (50 * this.level);
         this.defenceType = DamageType.PHYSICAL;
         this.attackType = DamageType.PHYSICAL;
+    }
+
+    public void tick() {
+
+    }
+
+    public void render(Graphics g) {
+
     }
 
     public void levelUp() {

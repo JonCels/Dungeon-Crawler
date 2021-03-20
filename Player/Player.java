@@ -1,8 +1,11 @@
 package Player;
+
+import GameInfo.GameID;
+import GameInfo.GameObject;
 import Enemies.DamageType;
 import Player.Equipment.Equipment;
 
-public abstract class Player {
+public abstract class Player extends GameObject {
     protected int damage;
     protected int HP;
     protected int maxHP;
@@ -13,6 +16,9 @@ public abstract class Player {
     protected Equipment[] equipment;
     //equipment
 
+    protected Player (int x, int y, GameID id) {
+        super(x, y, id);
+    }
     public int attack() {
         return this.damage;
     }
