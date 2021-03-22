@@ -2,6 +2,7 @@ import java.awt.Canvas;
 import java.awt.image.BufferStrategy;
 import java.awt.Graphics;
 import java.awt.Color;
+
 import Enemies.*;
 import Player.*;
 import Player.Equipment.*;
@@ -15,8 +16,9 @@ public class Game extends Canvas implements Runnable {
     private boolean isRunning = false;
 
     public Game() {
-        new Window(WIDTH, HEIGHT, "Dungeon Crawler", this);
         handler = new Handler();
+        this.addKeyListener(new KeyboardInput(handler));
+        new Window(WIDTH, HEIGHT, "Dungeon Crawler", this);
         handler.addObject(new Warrior(100, 100, GameID.Player));
     }
 
@@ -61,7 +63,7 @@ public class Game extends Canvas implements Runnable {
 
             if (System.currentTimeMillis() - timer > 1000) {
                 timer += 1000;
-                System.out.println("FPS: " + frames);
+                //System.out.println("FPS: " + frames);
                 frames = 0;
             }
         }
