@@ -1,5 +1,6 @@
 package Player;
 import java.awt.Graphics;
+import java.awt.Color;
 
 import GameInfo.GameID;
 import Enemies.DamageType;
@@ -31,7 +32,8 @@ public class Warrior extends Player {
     }
 
     public void render(Graphics g) {
-
+        g.setColor(Color.blue);
+        g.fillRect(x, y, 10, 10);
     }
 
     public void levelUp() {

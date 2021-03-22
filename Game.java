@@ -1,4 +1,3 @@
-package GameInfo;
 import java.awt.Canvas;
 import java.awt.image.BufferStrategy;
 import java.awt.Graphics;
@@ -6,16 +5,19 @@ import java.awt.Color;
 import Enemies.*;
 import Player.*;
 import Player.Equipment.*;
-
+import GameInfo.*;
 
 public class Game extends Canvas implements Runnable {
     private static final long serialVersionUID = -1442798787354930462L;
     private static final int WIDTH = 640, HEIGHT = WIDTH * 9 / 12;
     private Thread thread;
+    private Handler handler;
     private boolean isRunning = false;
 
     public Game() {
         new Window(WIDTH, HEIGHT, "Dungeon Crawler", this);
+        handler = new Handler();
+        handler.addObject(new Warrior(100, 100, GameID.Player));
     }
 
     public synchronized void start() {
@@ -66,7 +68,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void tick() {
-
+        handler.tick();
     }
 
     private void render() {
@@ -80,6 +82,8 @@ public class Game extends Canvas implements Runnable {
 
         g.setColor(Color.black);
         g.fillRect(0, 0, WIDTH, HEIGHT);
+
+        handler.render(g);
 
         g.dispose();
         bs.show();
